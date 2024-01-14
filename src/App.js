@@ -7,8 +7,7 @@ function App() {
 			{/* place for a header */}
 			{/* menu btns */}
 			{/* search */}
-			{/* cart check*/}
-			{/* cart check*/}
+			{/* cart */}
 			<div className="cardContainer">{/* cards */}</div>
 		</div>
 	);
