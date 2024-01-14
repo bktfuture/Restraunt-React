@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Vina+Sans&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+/* body styling */
+
+.body {
+	text-align: center;
+	margin: 0;
+	position: relative;
+}
+.cardContainer {
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+/* card styles */
+
+.card {
+	margin: 5px;
+	width: 48%;
+	border: 1px solid rgb(226, 224, 224);
+	display: flex;
+	padding: 10px;
+	border-radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card img {
+	width: 100px;
+	height: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-left {
+	width: 20%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-right {
+	width: 80%;
+}
+/* search input style */
+#search-input {
+	margin-top: 20px;
+	height: 37px;
+	font-size: 16px;
+	width: 40%;
 }
 
-.App-link {
-  color: #61dafb;
+/* buttons styles. These are jsut for the help or u can reuse them */
+
+.button-31 {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	background-color: #222;
+	border-radius: 4px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'Farfetch Basis', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+	margin: 0;
+
+	outline: none;
+	overflow: hidden;
+	padding: 9px 20px 8px;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	width: 10%;
+}
+.button-31 a {
+	text-transform: none;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-31:hover,
+.button-31:focus {
+	opacity: 0.75;
+}
+button {
+	padding: 10px 15px;
+	border: none;
+	cursor: pointer;
+}
+
+span {
+	font-size: 20px;
+	padding-left: 20px;
+}
+
+strong {
+	font-size: 20px;
+}
+.clearInput {
+	display: none;
+}
+
+.cart {
+	margin-left: 30px;
+	border: 1px solid yellowgreen;
+	background-color: transparent;
+}
+
+p {
+	padding-left: 30px;
+	text-align: center;
+}
+
+.active-menu-btn {
+	background-color: green;
+	color: white;
+}
+
+button {
+	font-size: 15px;
+}
+
+.addToCartBtn {
+	color: white;
+	background-color: green;
+}
+
+.orderBtn,
+.clearCart {
+	margin-left: 20px;
+	border: 1px solid yellowgreen;
+	background-color: transparent;
+}
+
+.hoverStyle:hover {
+	background-color: yellowgreen;
+	color: black;
+}
+
+.greenBg {
+	background-color: yellowgreen;
 }
