@@ -145,3 +145,8 @@ button {
 .greenBg {
   background-color: yellowgreen;
 }
+
+.active-menu-btn {
+  background-color: green;
+  color: white;
+}
