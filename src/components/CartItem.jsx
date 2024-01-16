@@ -1,20 +1,20 @@
 import React from 'react'
+import { formatAmount } from '../client'
 
-export default function CartItem() {
+export default function CartItem({title, price,img, quantity, deleteProduct, id }) {
   return (
-    <div className="card">
+    <div className="cartItem card">
     <div className="card-left">
-    <img src="${item.img}" />
+    <img src={img} />
     </div>
     <div className="card-right">
       <div className="title">
-        <strong>Title</strong>
-        <span>$Price</span>
+        <strong>{quantity} of {title}</strong>
+        <span>{formatAmount(price)}</span>
       </div>
-      <p>
-        Description
-      </p>
+      
     </div>
+      <button className='deleteBtn' onClick={()=> deleteProduct(id)}>x</button>
   </div>
   )
 }
