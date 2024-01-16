@@ -145,3 +145,27 @@ button {
 .greenBg {
   background-color: yellowgreen;
 }
+
+.cart-container{
+  display: flex;
+  flex-direction: column;
+ position: absolute;
+ margin-left: 60%;
+ width: 40%;
+ background-color: rgb(237, 235, 235);
+ padding: 15px;
+}
+
+.cartCollapseBtn{
+  background-color: rgba(23, 23, 23, 0.127);
+  align-self: flex-end;
+}
+
+.cartItem{
+  width: 100%;
+}
+
+.deleteBtn{
+  color: white;
+  background-color: red;
+}

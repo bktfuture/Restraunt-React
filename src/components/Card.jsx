@@ -1,4 +1,6 @@
-export default function Card({ id, title, price, img, desc }) {
+import { formatAmount } from "../client";
+
+export default function Card({ id, title, price, img, desc, addToCartHandle }) {
   return (
     <div className="card">
       <div className="card-left">
@@ -7,10 +9,10 @@ export default function Card({ id, title, price, img, desc }) {
       <div className="card-right">
         <div className="card-title">
           <strong>{title}</strong>
-          <span>{price}</span>
+          <span>{formatAmount(price)}</span>
         </div>
         <p>{desc}</p>
-        <button className="addToCartBtn">Add to Cart</button>
+        <button onClick={()=> addToCartHandle(id)} className="addToCartBtn">Add to Cart</button>
       </div>
     </div>
   );
