@@ -48,11 +48,11 @@ function App() {
     <div className="body">
       <h1>Restaurant Menu</h1>
 
-      <Menu categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
+      <Menu toggleCart={toggleCart} categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} cart={cart} />
       {isCartOpen && <Cart cart={cart} toggleCart={toggleCart} setCart={setCart}/>}
 
       <Search />
-      <button onClick={()=> toggleCart()}>Temporary Cart</button>
+      
 
       {/* place for a header */}
       {/* search */}
