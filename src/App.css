@@ -146,6 +146,11 @@ button {
   background-color: yellowgreen;
 }
 
+.active-menu-btn {
+  background-color: green;
+  color: white;
+}
+
 .cart-container{
   display: flex;
   flex-direction: column;
