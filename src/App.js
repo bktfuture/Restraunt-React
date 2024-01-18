@@ -5,6 +5,8 @@ import Cards from "./components/Cards";
 import Search from "./components/Search";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SingleCard from "./components/SingleCard";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -45,20 +47,30 @@ function App() {
 
   // we can create a constant for api calls or call api here (not prefer)
   return (
+    <BrowserRouter>
+    
+
     <div className="body">
+      <Link to="/">
       <h1>Restaurant Menu</h1>
+      </Link>
 
       <Menu toggleCart={toggleCart} categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} cart={cart} />
       {isCartOpen && <Cart cart={cart} toggleCart={toggleCart} setCart={setCart}/>}
 
       <Search />
+      <Routes>
+      <Route path="/" element={<Cards products={filteredProducts()} addToCartHandle={addToCartHandle}/>} />
+      <Route path="/product/:productId" element={<SingleCard addToCartHandle={addToCartHandle} products={products} />} />
+    </Routes>
       
 
       {/* place for a header */}
       {/* search */}
 
-      <Cards products={filteredProducts()} addToCartHandle={addToCartHandle}/>
+      
     </div>
+    </BrowserRouter>
   );
 }
 
