@@ -1,41 +1,46 @@
-import CartItem from "./CartItem";
-const Cart = ({ setCart, cart, toggleCart }) => {
-  const deleteProduct = (id) => {
-    const filteredItems = cart.filter((el) => el.id !== id);
-    setCart(filteredItems);
-  };
+import CartItem from './CartItem';
 
-  const deleteAllFromCart = () => {
-    setCart([]);
-  };
-  return (
-    <>
-      <div className="cart-container">
-        <button
-          className="cartCollapseBtn"
-          onClick={() => {
-            toggleCart();
-          }}
-        >
-          Close
-        </button>
+const Cart = ({ setCart, cart, toggleCart, addToCartHandle, decreaseQuantity }) => {
+	const deleteProduct = (id) => {
+		const filteredItems = cart.filter((el) => el.id !== id);
+		setCart(filteredItems);
+	};
 
-        {cart.length !== 0 ? (
-          cart.map((item) => (
-            <CartItem deleteProduct={deleteProduct} {...item} />
-          ))
-        ) : (
-          <h3>Your Cart is empty</h3>
-        )}
+	const deleteAllFromCart = () => {
+		setCart([]);
+	};
+	return (
+		<>
+			<div className="cart-container">
+				<button
+					className="cartCollapseBtn"
+					onClick={() => {
+						toggleCart();
+					}}
+				>
+					Close
+				</button>
 
-        {cart.length > 0 && (
-          <button className="deleteBtn" onClick={() => deleteAllFromCart()}>
-            Remove All
-          </button>
-        )}
-      </div>
-    </>
-  );
+				{cart.length !== 0 ? (
+					cart.map((item) => (
+						<CartItem deleteProduct={deleteProduct} decreaseQuantity={decreaseQuantity} addToCartHandle={addToCartHandle} {...item} />
+					))
+				) : (
+					<h3>Your Cart is empty</h3>
+				)}
+
+
+        <div clasName="totalPrice">
+          
+        </div>
+				{cart.length > 0 && (
+					<button className="deleteBtn" onClick={() => deleteAllFromCart()}>
+						Remove All
+					</button>
+				)}
+			</div>
+		</>
+	);
 };
 
 export default Cart;
