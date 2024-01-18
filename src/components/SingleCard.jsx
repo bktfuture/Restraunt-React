@@ -7,7 +7,7 @@ export default function SingleCard({ products, addToCartHandle }) {
   const product = products.find(el => el.id == productId);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <h3>Product not found...</h3>;
   }
 
   const { img, title, price, desc, id } = product;
