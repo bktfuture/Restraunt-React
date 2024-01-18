@@ -9,6 +9,7 @@ const Cart = ({ setCart, cart, toggleCart, addToCartHandle, decreaseQuantity }) 
 	const deleteAllFromCart = () => {
 		setCart([]);
 	};
+
 	return (
 		<>
 			<div className="cart-container">
@@ -29,10 +30,10 @@ const Cart = ({ setCart, cart, toggleCart, addToCartHandle, decreaseQuantity }) 
 					<h3>Your Cart is empty</h3>
 				)}
 
-
-        <div clasName="totalPrice">
-          
-        </div>
+				<div clasName="totalPrice">
+					<h1>Total:</h1>
+					<p>$</p>
+				</div>
 				{cart.length > 0 && (
 					<button className="deleteBtn" onClick={() => deleteAllFromCart()}>
 						Remove All
