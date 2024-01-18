@@ -22,7 +22,7 @@
 .card {
 	margin: 5px;
 	width: 48%;
-	border: 1px solid rgb(226, 224, 224);
+	border: 1px solid rgba(7, 120, 58, 0.21);
 	display: flex;
 	padding: 10px;
 	border-radius: 5px;
@@ -167,6 +167,7 @@ button {
 .cartCollapseBtn {
 	background-color: rgba(23, 23, 23, 0.127);
 	align-self: flex-end;
+	border: 1px solid rgba(0, 128, 0, 0.241);
 }
 
 .cartItem {
@@ -178,7 +179,7 @@ button {
 .deleteBtn {
 	color: rgb(5, 69, 27);
 	height: 3rem;
-	border: 1px solid rgb(226, 224, 224);
+	border: 1px solid rgb(0, 128, 0);
 	margin: auto;
 }
 
@@ -207,4 +208,23 @@ button {
 
 .cartItem img {
 	justify-self: center;
+}
+
+.totalPrice {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-right: 1rem;
+	margin-left: 1rem;
+}
+.totalPrice h4 {
+	margin-top: 10px;
+}
+
+hr {
+	border: 1px solid green;
+}
+
+input {
+	padding-left: 10px;
 }
