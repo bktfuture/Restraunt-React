@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import { getProducts } from './client';
-import Cards from './components/Cards';
-import Search from './components/Search';
-import Menu from './components/Menu';
-import Cart from './components/Cart';
+
+import { useEffect, useState } from "react";
+import "./App.css";
+import { getProducts } from "./client";
+import Cards from "./components/Cards";
+import Search from "./components/Search";
+import Menu from "./components/Menu";
+import Cart from "./components/Cart";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SingleCard from "./components/SingleCard";
+
 
 function App() {
 	const [products, setProducts] = useState([]);
@@ -36,10 +40,8 @@ function App() {
 		setIsCartOpen(!isCartOpen);
 	};
 
-	// Extract unique categories from products
 	const categories = [...new Set(products.map((product) => product.category))];
-
-	// Filter products based on selected category
+  	// Filter products based on selected category
 	const filteredProducts = () => {
 		if (selectedCategory === 'all') {
 			return products;
@@ -47,25 +49,31 @@ function App() {
 			return products.filter((product) => product.category === selectedCategory);
 		}
 	};
+  
+  return (
+    <BrowserRouter>
+    
 
-	// we can create a constant for api calls or call api here (not prefer)
-	return (
-		<div className="body">
-			<h1>Restaurant Menu</h1>
-
+    <div className="body">
+      <Link to="/">
+      <h1>Restaurant Menu</h1>
+      </Link>
+      <Search />
+      <Routes>
+      <Route path="/" element={<Cards products={filteredProducts()} addToCartHandle={addToCartHandle}/>} />
+      <Route path="/product/:productId" element={<SingleCard addToCartHandle={addToCartHandle} products={products} />} />
+    </Routes>
+      
 			<Menu toggleCart={toggleCart} categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} cart={cart} />
 			{isCartOpen && (
 				<Cart cart={cart} toggleCart={toggleCart} setCart={setCart} addToCartHandle={addToCartHandle} decreaseQuantity={decreaseQuantity} />
 			)}
 
-			<Search />
 
-			{/* place for a header */}
-			{/* search */}
-
-			<Cards products={filteredProducts()} addToCartHandle={addToCartHandle} />
-		</div>
-	);
+      
+    </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

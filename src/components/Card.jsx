@@ -1,3 +1,4 @@
+
 import { formatAmount } from '../client';
 
 export default function Card({ id, title, price, img, desc, addToCartHandle }) {
