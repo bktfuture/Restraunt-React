@@ -6,7 +6,13 @@ export default function Search() {
     setSearchQuery(e.target.value);
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        width: "600px",
+        margin: "auto",
+      }}
+    >
       <input
         type="text"
         name=""
@@ -16,7 +22,9 @@ export default function Search() {
         value={searchQuery}
       />
       {searchQuery.length > 0 && (
-        <button onClick={() => setSearchQuery("")}>Clear</button>
+        <button id="search-btn" onClick={() => setSearchQuery("")}>
+          Clear
+        </button>
       )}
     </div>
   );

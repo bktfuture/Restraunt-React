@@ -45,7 +45,13 @@
   margin-top: 20px;
   height: 37px;
   font-size: 16px;
-  width: 40%;
+  width: 70%;
+}
+
+#search-btn {
+  height: 37px;
+  width: 30%;
+  margin-top: 20px;
 }
 
 /* buttons styles. These are jsut for the help or u can reuse them */
@@ -151,28 +157,28 @@ button {
   color: white;
 }
 
-.cart-container{
+.cart-container {
   display: flex;
   flex-direction: column;
- position: absolute;
- margin-left: 56%;
- width: 44%;
- height: 65%;
- background-color: rgb(237, 235, 235);
- padding: 15px;
- overflow: scroll;
+  position: absolute;
+  margin-left: 56%;
+  width: 44%;
+  height: 65%;
+  background-color: rgb(237, 235, 235);
+  padding: 15px;
+  overflow: scroll;
 }
 
-.cartCollapseBtn{
+.cartCollapseBtn {
   background-color: rgba(23, 23, 23, 0.127);
   align-self: flex-end;
 }
 
-.cartItem{
+.cartItem {
   width: 100%;
 }
 
-.deleteBtn{
+.deleteBtn {
   color: white;
   background-color: red;
 }
