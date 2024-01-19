@@ -1,5 +1,5 @@
-
 import { formatAmount } from '../client';
+import { Link } from 'react-router-dom';
 
 export default function Card({ id, title, price, img, desc, addToCartHandle }) {
 	return (
@@ -12,7 +12,9 @@ export default function Card({ id, title, price, img, desc, addToCartHandle }) {
 					<strong>{title}</strong>
 					<span>{formatAmount(price)}</span>
 				</div>
-				<p>{desc}</p>
+				<Link to={`/product/${id}`}>
+					<p>{desc}</p>
+				</Link>
 				<button onClick={() => addToCartHandle(id)} className="addToCartBtn hoverStyle">
 					Add to Cart
 				</button>

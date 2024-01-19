@@ -229,14 +229,18 @@ input {
 	padding-left: 10px;
 }
 
-.body a{
-  text-decoration: none;
-  color: black;
+.body a {
+	text-decoration: none;
+	color: black;
 }
 
-.single-card{
- margin-left: auto;
- margin-right: auto;
- margin-top: 7rem;
- margin-bottom: 7rem;
+.single-card {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 7rem;
+	margin-bottom: 7rem;
+}
+
+.icon {
+	margin-right: 10px;
 }

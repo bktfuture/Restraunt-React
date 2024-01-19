@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import SingleCard from './components/SingleCard';
+import { FaLeaf } from 'react-icons/fa';
 
 function App() {
 	const [products, setProducts] = useState([]);
@@ -52,7 +53,12 @@ function App() {
 		<BrowserRouter>
 			<div className="body">
 				<Link to="/">
-					<h1>Restaurant Menu</h1>
+					<h1>
+						<span className="icon">
+							<FaLeaf color="green" size={27} />
+						</span>
+						Restaurant Menu
+					</h1>
 				</Link>
 				<Menu toggleCart={toggleCart} categories={categories} selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} cart={cart} />
 				{isCartOpen && (
