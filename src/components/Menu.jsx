@@ -21,7 +21,7 @@ const Menu = ({ categories, selectedCategory, onSelectCategory, toggleCart, cart
 			<>
 				<button className="hoverStyle" onClick={() => toggleCart()}>
 					{' '}
-					<BsCart style={{ fontSize: '12px' }} /> CART{cartLength > 0 && `(${cartLength})`}
+					<BsCart color="green" style={{ fontSize: '12px' }} /> CART{cartLength > 0 && `(${cartLength})`}
 				</button>
 			</>
 		</div>
