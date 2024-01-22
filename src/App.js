@@ -11,6 +11,7 @@ import { FaLeaf } from 'react-icons/fa';
 
 function App() {
 	const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 	const [isCartOpen, setIsCartOpen] = useState(false);
 	const [cart, setCart] = useState([]);
 	const [selectedCategory, setSelectedCategory] = useState('all');
@@ -18,6 +19,14 @@ function App() {
 	useEffect(() => {
 		setProducts(getProducts());
 	}, []);
+
+  useEffect(() => {
+    if (selectedCategory === 'all') {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter((product) => product.category === selectedCategory));
+    }
+  }, [products, selectedCategory])
 
 	const addToCartHandle = (id) => {
 		const isExsists = cart.some((product) => product.id === id);
@@ -40,20 +49,28 @@ function App() {
 	};
 
 	const categories = [...new Set(products.map((product) => product.category))];
-	// Filter products based on selected category
-	const filteredProducts = () => {
-		if (selectedCategory === 'all') {
-			return products;
-		} else {
-			return products.filter((product) => product.category === selectedCategory);
-		}
-	};
+
+  const onSearch = (searchQuery) => {
+    let foundProducts = []
+
+    if (selectedCategory === 'all') {
+      foundProducts = products.filter((product)=> {
+        return product.title.toLowerCase().includes(searchQuery)
+      });
+    } else {
+      foundProducts = filteredProducts.filter((product) => {
+        return product.title.toLowerCase().includes(searchQuery)
+      });
+    }
+    
+    setFilteredProducts(foundProducts)
+  }
 
 	return (
 		<BrowserRouter>
 			<div className="body">
 				<Link to="/">
-					<h1>
+					<h1 onClick={()=> setSelectedCategory("all")}>
 						<span className="icon">
 							<FaLeaf color="green" size={27} />
 						</span>
@@ -64,9 +81,9 @@ function App() {
 				{isCartOpen && (
 					<Cart cart={cart} toggleCart={toggleCart} setCart={setCart} addToCartHandle={addToCartHandle} decreaseQuantity={decreaseQuantity} />
 				)}
-				<Search />
+				<Search onSearch={onSearch}/>
 				<Routes>
-					<Route path="/" element={<Cards products={filteredProducts()} addToCartHandle={addToCartHandle} />} />
+					<Route path="/" element={<Cards products={filteredProducts} addToCartHandle={addToCartHandle} />} />
 					<Route path="/product/:productId" element={<SingleCard addToCartHandle={addToCartHandle} products={products} />} />
 				</Routes>
 			</div>
