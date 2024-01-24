@@ -17,6 +17,9 @@
 	align-items: stretch;
 	flex-wrap: wrap;
 }
+.nothing {
+	margin: auto;
+}
 /* card styles */
 
 .card {
